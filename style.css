@@ -1,0 +1,68 @@
+/* Custom CSS extensions outside Tailwind */
+
+:root {
+    --primary: #003366;
+    --accent: #00D4FF;
+    --dark: #0A0A0B;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--dark);
+}
+
+body {
+    background-color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    cursor: default;
+}
+
+/* Glassmorphism panels */
+.glass-panel {
+    background: rgba(10, 10, 11, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* Film grain texture */
+.bg-film-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* Liquid Distortion class for GSAP hooks */
+.liquid-reveal {
+    visibility: hidden; /* Prevent flash of unstyled content */
+}
+
+/* Ticker Animation */
+@keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.ticker-content {
+    animation: ticker 40s linear infinite;
+    will-change: transform;
+}
+
+/* Service Card Tilt utilities applied in JS via GSAP, but here is a base */
+.service-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* Custom Scrollbar for dark theme */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 212, 255, 0.2);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 212, 255, 0.5);
+}
